@@ -1,7 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
 
-//function to determine length of card number
 
 int get_int_len (long value);
 bool checksum(long ccn);
@@ -13,7 +12,7 @@ int main(void)
   int ccNumberLength= get_int_len(ccNumber);
    //determine if valid
         if(ccNumberLength==13||ccNumberLength==16||ccNumberLength==15){
-        //validate checksum and print credit card brand 
+        //validate checksum and print credit card brand
             if(checksum(ccNumber)==true){
                 if((ccNumber>=4e12 && ccNumber < 5e12) || (ccNumber>=4e15 && ccNumber < 5e15) ){
                     printf("VISA\n");
@@ -32,12 +31,14 @@ int main(void)
         }
 }
 
+//function to determine length of card number
 int get_int_len (long value){
   int l=1;
   while(value>9){ l++; value/=10; }
   return l;
 }
 
+//function to determine if credit card number is valid
 bool checksum(long ccn){
 
    int sum=0;
